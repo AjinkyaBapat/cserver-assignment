@@ -61,6 +61,7 @@ docker run -d -p 9393:9300 \
 ```
 
 > **Note**: Files `gencsv.sh`, `inputFile`, `part-1-cmd`, `part-1-output`, `part-1-logs` are present in the *Solution* directory.
+<<<<<<< HEAD
 
 
 ## Part 2
