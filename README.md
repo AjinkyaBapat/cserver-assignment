@@ -60,8 +60,9 @@ docker run -d -p 9393:9300 \
 -v "$(pwd)"/inputFile:/csvserver/inputdata infracloudio/csvserver:latest
 ```
 
+![](Solution/Output1.png)
+
 > **Note**: Files `gencsv.sh`, `inputFile`, `part-1-cmd`, `part-1-output`, `part-1-logs` are present in the *Solution* directory.
-<<<<<<< HEAD
 
 
 ## Part 2
@@ -84,3 +85,30 @@ Created a 'docker-compose.yml', can be referenced from Solution directory.
 ```bash
 docker-compose up -d
 ```
+
+## Part 3
+
+  0. Delete any containers running from the last part.
+
+```bash
+docker stop csv-appserver
+docker rm csv-appserver
+```
+  1. Add Prometheus container (`prom/prometheus:v2.22.0`) to the docker-compose.yaml form part II.
+
+```bash
+Added prometheus service to the 'docker-compose.yml'
+```
+
+  2. Configure Prometheus to collect data from our application at `<application>:<port>/metrics` endpoint. (Where the `<port>` is the port from I.5)
+
+```bash
+Added 'prometheus.yml' configuration file in Solution directory.
+```
+  3. Make sure that Prometheus is accessible at http://localhost:9090 on the host.
+
+![](Solution/Output3.png)
+
+  4. Type `csvserver_records` in the query box of Prometheus. Click on Execute and then switch to the Graph tab.
+
+![](Solution/Output2.png)
